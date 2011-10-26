@@ -1,0 +1,28 @@
+// Place all the styles related to the card controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#cards-block {
+  width: 700px;
+  height: 700px;
+  border: 1px solid #000;
+  position: absolute;
+  .draggable {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-color: #333;
+    border: 1px solid #dfdfdf;
+    color: #fff;
+    padding: 3px;
+    margin: 2px;
+    &:hover {
+      z-index: 100;
+      background-color: #555;
+    }
+  }
+}
+
+.add-card-block {
+  position: relative;
+  clear: both;
+}

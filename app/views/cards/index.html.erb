@@ -1,0 +1,10 @@
+<div id="cards-block">
+  <%= render @cards %>
+</div>
+
+<div class="add-card-block">
+  <%= form_for Card.new, :remote => true do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "Add new card" %>
+  <% end %>
+</div>
