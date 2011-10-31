@@ -15,4 +15,10 @@ $(function() {
   faye.subscribe('/cards/update', function (data) {
     eval(data);
   });
+  faye.subscribe('/tickets/new', function (data) {
+    eval(data);
+  });
+  faye.subscribe('/tickets/update', function (data) {
+    eval(data);
+  });
 });

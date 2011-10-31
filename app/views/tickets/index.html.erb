@@ -1,0 +1,10 @@
+<div id="tickets-block">
+  <%= render @tickets %>
+</div>
+
+<div class="add-ticket-block">
+  <%= form_for Ticket.new, :remote => true do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "Add new ticket" %>
+  <% end %>
+</div>

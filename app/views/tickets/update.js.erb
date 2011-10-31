@@ -1,0 +1,4 @@
+<% broadcast "/tickets/update" do %>
+  $("#ticket_<%= @ticket.id %>").replaceWith("<%= escape_javascript render(@ticket) %>");
+  window.dragableInit();
+<% end %>

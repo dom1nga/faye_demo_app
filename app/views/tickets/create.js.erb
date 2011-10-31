@@ -1,0 +1,5 @@
+<% broadcast "/tickets/new" do %>
+  $("#tickets-block").append("<%= escape_javascript render(@ticket) %>");
+  window.dragableInit();
+<% end %>
+$("#new_ticket")[0].reset();

@@ -1,11 +1,11 @@
 $ ->
   window.dragableInit = ->
-    $("#cards-block > .draggable").draggable
+    $("#tickets-block > .draggable").draggable
       drag: (event, ui) ->
       stop: (event, ui) ->
         $.ajax
           type: "PUT"
-          url: document.URL + "cards/" + $(this).attr("id")
+          url: document.URL + '/' + $(this).attr("id").match(/\d+$/)
           data:
             top: $(this).position().top
             left: $(this).position().left
