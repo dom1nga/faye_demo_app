@@ -1,5 +1,5 @@
 $ ->
-  window.dragableInit = ->
+  window.dragableInitCards = ->
     $("#cards-block > .draggable").draggable
       drag: (event, ui) ->
       stop: (event, ui) ->
@@ -7,7 +7,8 @@ $ ->
           type: "PUT"
           url: document.URL + "cards/" + $(this).attr("id")
           data:
-            top: $(this).position().top
-            left: $(this).position().left
+            card:
+              top: $(this).position().top
+              left: $(this).position().left
 
-  window.dragableInit()
+  window.dragableInitCards()

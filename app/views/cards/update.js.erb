@@ -1,4 +1,6 @@
-<% broadcast "/cards/update" do %>
-  $("#<%= @card.id %>").replaceWith("<%= escape_javascript render(@card) %>");
-  window.dragableInit();
+<% if params[:card].length > 1 %>
+  <% broadcast "/card/new" do %>
+    $("#<%= @card.id %>").replaceWith("<%= escape_javascript render(@card) %>");
+    window.dragableInitCards();
+  <% end %>
 <% end %>

@@ -1,3 +1,7 @@
 <div id="<%= card.id %>" class="draggable card" style="left: <%= card.left %>px; top: <%=card.top %>px;">
-  <%= card.name %>
+  <%= faye_watcher card, "name" %>
+  <%= form_for(card, :remote => true) do |f| %>
+    <%= f.text_field :name, :size => "12" %>
+    <%= f.submit "Update"%>
+  <% end %>
 </div>

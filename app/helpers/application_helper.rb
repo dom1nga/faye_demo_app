@@ -4,4 +4,8 @@ module ApplicationHelper
     uri = URI.parse("http://#{Rails.configuration.faye_host}:#{Rails.configuration.faye_port}/faye")
     Net::HTTP.post_form(uri, :message => message.to_json)
   end
+
+  def faye_watcher(object, attribute)
+    content_tag(:div, "#{object[attribute.to_sym]}", {:id => "#{object.class.name.downcase}_#{object.id}_#{attribute}"})
+  end
 end

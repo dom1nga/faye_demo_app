@@ -9,16 +9,16 @@ $(function() {
 
 $(function() {
   var faye = new Faye.Client("http://<%= Rails.configuration.faye_host %>:<%= Rails.configuration.faye_port %>/faye");
-  faye.subscribe('/cards/new', function (data) {
+  faye.subscribe('/card/new', function (data) {
     eval(data);
   });
-  faye.subscribe('/cards/update', function (data) {
+  faye.subscribe('/card/update', function (data) {
     eval(data);
   });
-  faye.subscribe('/tickets/new', function (data) {
+  faye.subscribe('/ticket/new', function (data) {
     eval(data);
   });
-  faye.subscribe('/tickets/update', function (data) {
+  faye.subscribe('/ticket/update', function (data) {
     eval(data);
   });
 });

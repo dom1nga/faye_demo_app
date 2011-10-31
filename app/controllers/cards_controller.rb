@@ -5,7 +5,7 @@ class CardsController < ApplicationController
 
   def update
     @card = Card.find(params[:id])
-    @card.update_attributes(params)
+    @card.update_attributes(params[:card])
   end
 
   def create

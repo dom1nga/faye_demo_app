@@ -1,5 +1,5 @@
 $ ->
-  window.dragableInit = ->
+  window.dragableInitTickets = ->
     $("#tickets-block > .draggable").draggable
       drag: (event, ui) ->
       stop: (event, ui) ->
@@ -10,4 +10,4 @@ $ ->
             top: $(this).position().top
             left: $(this).position().left
 
-  window.dragableInit()
+  window.dragableInitTickets()

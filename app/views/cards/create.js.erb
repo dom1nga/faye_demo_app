@@ -1,5 +1,5 @@
-<% broadcast "/cards/new" do %>
+<% broadcast "/card/new" do %>
   $("#cards-block").append("<%= escape_javascript render(@card) %>");
-  window.dragableInit();
+  window.dragableInitCards();
 <% end %>
 $("#new_card")[0].reset();
