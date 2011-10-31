@@ -4,11 +4,11 @@
 //= require_tree .
 
 $(function() {
-  var faye = new Faye.Client('http://localhost:9292/faye');
+  var faye = new Faye.Client("http://<%= Rails.configuration.faye_host %>:<%= Rails.configuration.faye_port %>/faye");
 });
 
 $(function() {
-  var faye = new Faye.Client('http://localhost:9292/faye');
+  var faye = new Faye.Client("http://<%= Rails.configuration.faye_host %>:<%= Rails.configuration.faye_port %>/faye");
   faye.subscribe('/cards/new', function (data) {
     eval(data);
   });

@@ -45,5 +45,11 @@ module DemoApp
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.active_record.observers = :action_observer
+
+    config.faye_host = '127.0.0.1'
+    config.faye_port = '9292'
+    config.faye_observers = [:card, :ticket]
   end
 end
