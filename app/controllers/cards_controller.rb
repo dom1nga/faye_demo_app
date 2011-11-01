@@ -11,5 +11,13 @@ class CardsController < ApplicationController
   def create
     @card = Card.create!(params[:card])
   end
+  
+  def destroy
+    @card = Card.find(params[:id])
+    @card.destroy()
+    respond_to do |format|
+      format.js
+    end
+  end
 
 end
