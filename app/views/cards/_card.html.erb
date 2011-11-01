@@ -4,4 +4,5 @@
     <%= f.text_field :name, :size => "12" %>
     <%= f.submit "Update"%>
   <% end %>
+  <%= link_to 'Destroy', card, :confirm => 'Are you sure?', :method => 'delete', :remote => true %>
 </div>
