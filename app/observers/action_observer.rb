@@ -12,12 +12,15 @@ class ActionObserver < ActiveRecord::Observer
 
   def before_update(model)
     if model.changed?
-      model.changes.each do |key, value|
-        broadcast_message("/listener", "$(\"##{model.class.name.downcase}_#{model.id}_#{key}\").html(\"#{value[1]}\")")
+      @client_changes = lambda do
+        model.changes.each do |key, value|
+          broadcast_message("/listener", "$(\"##{model.class.name.downcase}_#{model.id}_#{key}\").html(\"#{value[1]}\")")
+        end
       end
     end
   end
 
   def after_update(model)
+    @client_changes.call
   end
 end
