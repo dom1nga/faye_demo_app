@@ -2,7 +2,7 @@
   <%= faye_watcher card, "name" %>
   <%= form_for(card, :remote => true) do |f| %>
     <%= f.text_field :name, :size => "12" %>
-    <%= f.submit "Update"%>
+    <%= f.submit "Update", :class => 'button' %>
   <% end %>
-  <%= link_to 'Destroy', card, :confirm => 'Are you sure?', :method => 'delete', :remote => true %>
+  <%= link_to 'Destroy', card, :confirm => 'Are you sure?', :method => 'delete', :remote => true, :class => 'button' %>
 </div>
