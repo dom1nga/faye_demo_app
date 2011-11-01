@@ -12,7 +12,6 @@ class ActionObserver < ActiveRecord::Observer
 
   def before_update(model)
     if model.changed?
-      puts model.class.name
       model.changes.each do |key, value|
         broadcast_message("/#{model.class.name.downcase}/update",
           "$(\"##{model.class.name.downcase}_#{model.id}_#{key}\").html(\"#{value[1]}\")")
