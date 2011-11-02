@@ -17,6 +17,8 @@ class ActionObserver < ActiveRecord::Observer
           broadcast_message("/listener", "$(\"##{model.class.name.downcase}_#{model.id}_#{key}\").html(\"#{value[1]}\")")
         end
       end
+    else
+      @client_changes = lambda {}
     end
   end
 
