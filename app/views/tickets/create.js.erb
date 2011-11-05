@@ -1,4 +1,4 @@
-<% broadcast "/listener" do %>
+<% broadcast do %>
   $("#tickets-block").append("<%= escape_javascript render(@ticket) %>");
   window.dragableInitTickets();
 <% end %>

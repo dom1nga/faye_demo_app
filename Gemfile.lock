@@ -61,7 +61,7 @@ GEM
       json (>= 1.0)
       rack (>= 1.0)
       thin (~> 1.2)
-    faye-plugin (0.1.0)
+    faye-plugin (0.1.1)
       faye (~> 0.6.7)
       faye (~> 0.6.7)
     hike (1.2.1)
@@ -137,7 +137,8 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.0)
-  faye-plugin
+  faye
+  faye-plugin (= 0.1.1)
   jquery-rails
   mysql2
   rails (= 3.1.0)

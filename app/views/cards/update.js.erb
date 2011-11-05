@@ -1,5 +1,5 @@
 <% if params[:card].length > 1 %>
-  <% broadcast "/listener" do %>
+  <% broadcast do %>
     $("#<%= @card.id %>").replaceWith("<%= escape_javascript render(@card) %>");
     window.dragableInitCards();
   <% end %>

@@ -1,10 +1,9 @@
 class ActionObserver < ActiveRecord::Observer
+  cattr_accessor :faye_client
   observe Rails.configuration.faye_observers
 
-  def broadcast_message(channel, data)
-    message = {:channel => channel, :data => data, :ext => {:auth_token => FAYE_TOKEN}}
-    uri = URI.parse("http://#{Rails.configuration.faye_host}:#{Rails.configuration.faye_port}/faye")
-    Net::HTTP.post_form(uri, :message => message.to_json)
+  def broadcast_message(data)
+    faye_client.publish '/listener', :data => data
   end
 
   def after_create(model)
@@ -14,7 +13,7 @@ class ActionObserver < ActiveRecord::Observer
     if model.changed?
       @client_changes = lambda do
         model.changes.each do |key, value|
-          broadcast_message("/listener", "$(\"##{model.class.name.downcase}_#{model.id}_#{key}\").html(\"#{value[1]}\")")
+          broadcast_message("$(\"##{model.class.name.downcase}_#{model.id}_#{key}\").html(\"#{value[1]}\")")
         end
       end
     else
