@@ -4,7 +4,7 @@
 //= require_tree .
 
 $(function() {
-  var faye = new Faye.Client("http://<%= Rails.configuration.faye_host %>:3000/faye");
+  var faye = new Faye.Client("http://<%= Rails.configuration.application_host %>:<%= Rails.configuration.application_port %>/faye");
   faye.subscribe('/listener', function (data) {
     eval(data.data);
   });

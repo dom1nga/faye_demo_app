@@ -49,8 +49,8 @@ module DemoApp
 
     config.active_record.observers = :action_observer
 
-    config.faye_host = '127.0.0.1'
-    config.faye_port = '9292'
+    config.application_host = '127.0.0.1'
+    config.application_port = '3000'
     config.faye_observers = [:card, :ticket]
     config.middleware.use Faye::RackAdapter, :mount => '/faye', :timeout => 45
   end
